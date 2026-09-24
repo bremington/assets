@@ -4,12 +4,16 @@ on:
   schedule:
     # Runs Mon-Fri at 22:30 UTC (6:30 PM EST, after US market close)
     - cron: '30 22 * * 1-5'
-  workflow_dispatch: # Allows manual run anytime
+  workflow_dispatch:
 
 permissions:
   contents: write
   pages: write
   id-token: write
+
+env:
+  # Instructs GitHub runner to execute actions on Node 24 without runtime warnings
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-and-publish:
