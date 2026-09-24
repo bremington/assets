@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-24T14:21:37.971Z",
+  "updatedAt": "2026-09-24T14:25:33.552Z",
   "quotes": {
     "SPY": 766.19,
     "VOO": 525.1,
@@ -28,5 +28,76 @@
     "IYH": 310,
     "XLE": 90
   },
-  "assetPerformance": {}
+  "assetPerformance": {
+    "AAXJ": {
+      "last12m": 34,
+      "bestYear": 58,
+      "worstYear": -33
+    },
+    "DBC": {
+      "last12m": 33,
+      "bestYear": 42,
+      "worstYear": -35
+    },
+    "ACWX": {
+      "last12m": 25,
+      "bestYear": 31,
+      "worstYear": -40
+    },
+    "VT": {
+      "last12m": 25,
+      "bestYear": 31,
+      "worstYear": -40
+    },
+    "VEA": {
+      "last12m": 21,
+      "bestYear": 35,
+      "worstYear": -43
+    },
+    "GLD": {
+      "last12m": 20,
+      "bestYear": 61,
+      "worstYear": -29
+    },
+    "VWO": {
+      "last12m": 19,
+      "bestYear": 65,
+      "worstYear": -55
+    },
+    "VNQ": {
+      "last12m": 16,
+      "bestYear": 32,
+      "worstYear": -25
+    },
+    "BIL": {
+      "last12m": 5,
+      "bestYear": 5.2,
+      "worstYear": 0
+    },
+    "TIP": {
+      "last12m": -2,
+      "bestYear": 9,
+      "worstYear": -17
+    },
+    "BND": {
+      "last12m": -3,
+      "bestYear": 7,
+      "worstYear": -14
+    },
+    "BNDX": {
+      "last12m": -3,
+      "bestYear": 7,
+      "worstYear": -14
+    },
+    "GBTC": {
+      "last12m": -44,
+      "bestYear": 1237,
+      "worstYear": -74
+    },
+    "BTC-USD": {
+      "last12m": -44,
+      "bestYear": 1237,
+      "worstYear": -74
+    }
+  }
 }
