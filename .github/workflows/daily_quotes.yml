@@ -1,0 +1,47 @@
+name: Update Daily EOD Quotes
+
+on:
+  schedule:
+    # Runs Mon-Fri at 22:30 UTC (6:30 PM EST, after US market close)
+    - cron: '30 22 * * 1-5'
+  workflow_dispatch: # Allows manual run anytime
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch EOD Prices
+        run: node scripts/update_quotes.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/eod_quotes.json
+          git commit -m "chore: update daily closing prices [skip ci]" || exit 0
+          git push
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'data'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
