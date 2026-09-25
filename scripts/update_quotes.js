@@ -3,9 +3,9 @@ const path = require('path');
 
 // 1. Tickers for current EOD prices (model portfolios & seed funds)
 const PRICE_SYMBOLS = [
-  'SPY', 'VOO', 'IVV', 'VTI', 'QQQ', 'DIA',
-  'VEA', 'VWO', 'VT', 'BND', 'AGG', 'BNDX',
-  'VNQ', 'SCHD', 'VUG', 'VTV', 'IWM', 'GLD',
+  'SPY', 'IVV',  'QQQ', 
+   'VWO', 'BND', 'BNDX',
+  'VNQ', 'SCHD', 'IWM', 'GLD',
   'HYG', 'DBC', 'PSP', 'PAVE', 'RING', 'ESGU', 'IYH', 'XLE'
 ];
 
