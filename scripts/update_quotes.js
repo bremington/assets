@@ -219,25 +219,34 @@ async function run() {
     ? existingCountries
     : JSON.parse(JSON.stringify(DEFAULT_COUNTRY_INDICES));
 
-  const output = {
-    updatedAt: new Date().toISOString(),
-    quotes: existingQuotes,
-    assetPerformance: assetPerf,
-    countryIndices: countryIndices
-  };
+// ⭐️ 1. Start with an empty quotes map so removed tickers are dropped
+  const freshQuotes = {};
 
-  // 1. Fetch EOD Prices
+  // ⭐️ 2. Fetch EOD Prices strictly for the tickers defined in PRICE_SYMBOLS
   console.log('--- Updating Ticker Prices ---');
   for (const sym of PRICE_SYMBOLS) {
     try {
       const price = await fetchQuote(sym);
-      output.quotes[sym] = Math.round(price * 100) / 100;
-      console.log(`✓ ${sym}: $${output.quotes[sym]}`);
+      freshQuotes[sym] = Math.round(price * 100) / 100;
+      console.log(`✓ ${sym}: $${freshQuotes[sym]}`);
     } catch (e) {
-      console.warn(`✗ ${sym} quote skipped: ${e.message}`);
+      // If network fails for a ticker, keep its previous price if available
+      if (existingQuotes[sym]) {
+        freshQuotes[sym] = existingQuotes[sym];
+        console.warn(`! ${sym} fetch failed: using cached price ($${existingQuotes[sym]})`);
+      } else {
+        console.warn(`✗ ${sym} quote skipped: ${e.message}`);
+      }
     }
     await new Promise(r => setTimeout(r, 200));
   }
+
+  const output = {
+    updatedAt: new Date().toISOString(),
+    quotes: freshQuotes, // 👈 Only contains tickers currently in PRICE_SYMBOLS
+    assetPerformance: assetPerf,
+    countryIndices: countryIndices
+  };
 
   // 2. Refresh Trailing 12-Month Returns for Asset Classes
   console.log('\n--- Refreshing Asset Class 12M Trailing Returns ---');
