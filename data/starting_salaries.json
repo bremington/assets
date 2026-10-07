@@ -1,1 +1,89 @@
-
+{
+  "updatedAt": "2026-10-07T00:00:00Z",
+  "source": "U.S. Bureau of Labor Statistics (OEWS) - 10th Percentile Proxy",
+  "categories": [
+    {
+      "id": "degree",
+      "label": "College Degree (Bachelor's+)",
+      "occupations": [
+        { "soc": "15-1252", "title": "Software Developer" },
+        { "soc": "17-2141", "title": "Mechanical Engineer" },
+        { "soc": "29-1141", "title": "Registered Nurse" },
+        { "soc": "17-2051", "title": "Civil Engineer" },
+        { "soc": "13-2051", "title": "Financial Analyst" },
+        { "soc": "15-2031", "title": "Data Analyst" },
+        { "soc": "13-2011", "title": "Accountant & Auditor" },
+        { "soc": "25-2021", "title": "Elementary School Teacher" },
+        { "soc": "25-2031", "title": "Secondary School Teacher" },
+        { "soc": "13-1071", "title": "Human Resources Specialist" },
+        { "soc": "13-1161", "title": "Marketing Specialist" },
+        { "soc": "27-1024", "title": "Graphic Designer" },
+        { "soc": "27-3031", "title": "Public Relations Specialist" },
+        { "soc": "11-9111", "title": "Medical & Health Services Manager" },
+        { "soc": "15-1212", "title": "Cybersecurity Analyst" }
+      ]
+    },
+    {
+      "id": "certification",
+      "label": "Certification, License, or Trade",
+      "occupations": [
+        { "soc": "47-2111", "title": "Electrician" },
+        { "soc": "47-2152", "title": "Plumber & Pipefitter" },
+        { "soc": "49-9021", "title": "HVAC Technician" },
+        { "soc": "29-1292", "title": "Dental Hygienist" },
+        { "soc": "29-2034", "title": "Radiologic Technologist" },
+        { "soc": "23-2011", "title": "Paralegal & Legal Assistant" },
+        { "soc": "49-3011", "title": "Aircraft Maintenance Tech" },
+        { "soc": "53-3032", "title": "Commercial Truck Driver (CDL)" },
+        { "soc": "29-2061", "title": "Licensed Practical Nurse (LPN)" },
+        { "soc": "51-4121", "title": "Welder" },
+        { "soc": "49-3023", "title": "Auto Service Technician" },
+        { "soc": "29-2040", "title": "Paramedic / EMT" },
+        { "soc": "15-1232", "title": "Computer Support Specialist" },
+        { "soc": "31-2021", "title": "Physical Therapist Assistant" },
+        { "soc": "41-9022", "title": "Real Estate Agent" }
+      ]
+    },
+    {
+      "id": "no_degree",
+      "label": "No Degree / Direct Entry",
+      "occupations": [
+        { "soc": "43-5052", "title": "Postal Mail Carrier" },
+        { "soc": "53-7062", "title": "Warehouse Material Mover" },
+        { "soc": "47-2061", "title": "Construction Laborer" },
+        { "soc": "43-4051", "title": "Customer Service Representative" },
+        { "soc": "43-9061", "title": "Office Clerk" },
+        { "soc": "41-2031", "title": "Retail Salesperson" },
+        { "soc": "35-2014", "title": "Cook (Restaurant)" },
+        { "soc": "37-3011", "title": "Landscaping & Groundskeeping" },
+        { "soc": "33-9032", "title": "Security Guard" },
+        { "soc": "37-2011", "title": "Janitor & Building Cleaner" },
+        { "soc": "43-4081", "title": "Hotel Front Desk Clerk" },
+        { "soc": "53-3033", "title": "Delivery Driver" },
+        { "soc": "31-1120", "title": "Home Health Aide" },
+        { "soc": "53-7065", "title": "Order Filler & Stocker" },
+        { "soc": "35-3031", "title": "Food & Beverage Server" }
+      ]
+    }
+  ],
+  "startingWages": {
+    "US": {
+      "15-1252": 82460,
+      "17-2141": 65800,
+      "29-1141": 63720,
+      "47-2111": 41200,
+      "49-9021": 37400,
+      "43-5052": 42100,
+      "43-4051": 31800
+    },
+    "CA": {
+      "15-1252": 94320,
+      "17-2141": 76400,
+      "29-1141": 88450,
+      "47-2111": 49800,
+      "49-9021": 43100,
+      "43-5052": 44500,
+      "43-4051": 36100
+    }
+  }
+}
