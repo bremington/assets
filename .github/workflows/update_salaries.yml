@@ -1,1 +1,35 @@
+name: Build Static Starting Salaries
 
+on:
+  workflow_dispatch: # Run manually when updating annual figures
+  schedule:
+    # Run once a year on April 1st at 00:00 UTC (after annual BLS release)
+    - cron: '0 0 1 4 *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build Starting Salaries JSON
+        run: node scripts/build_salaries.js
+
+      - name: Commit and Push Updated Data
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/starting_salaries.json
+          git commit -m "chore: refresh starting salaries dataset [skip ci]" || exit 0
+          git push
